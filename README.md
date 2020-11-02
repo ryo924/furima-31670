@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column      | Type   | Options     |
-| ------      | ----   | -------     |
-| nickname    | string | null: false |
-| email       | string | null: false |
-| password    | string | null: false |
-| sei         | string | null: false |
-| mei         | string | null: false |
-| sei_kana    | string | null: false |
-| mei_kana    | string | null: false |
-| birthday    | date   | null: false |
+| Column             | Type   | Options     |
+| ------             | ----   | -------     |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| sei                | string | null: false |
+| mei                | string | null: false |
+| sei_kana           | string | null: false |
+| mei_kana           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
@@ -27,7 +27,7 @@
 | category_id     | integer     | null: false                    |
 | condition_id    | integer     | nill: false                    |
 | shipping_fee_id | integer     | null: false                    |
-| area_id         | integer     | null: false                    |
+| prefecture_id   | integer     | null: false                    |
 | day_id          | integer     | null: false                    |
 | price           | integer     | null: false                    |
 | user            | references  | null: false, foreign_key: true |
