@@ -8,16 +8,20 @@ class User < ApplicationRecord
   SEI_MEI_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   SEI_MEI_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
 
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :sei
+    validates :mei
+    validates :sei_kana
+    validates :mei_kana
+    validates :birthday
+  end
+
   validates :password, length: {minimum: 6 }
   validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
-  validates :sei, presence: true
   validates_format_of :sei, with: SEI_MEI_REGEX, message: 'Full-width characters'
-  validates :mei, presence: true
   validates_format_of :mei, with: SEI_MEI_REGEX, message: 'Full-width characters'
-  validates :sei_kana, presence: true
   validates_format_of :sei_kana, with: SEI_MEI_KANA_REGEX, message: 'Full-width katakana characters'
-  validates :mei_kana, presence: true
   validates_format_of :mei_kana, with: SEI_MEI_KANA_REGEX, message: 'Full-width katakana characters'
-  validates :birthday, presence: true
+  
 end

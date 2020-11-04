@@ -60,6 +60,17 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
 
+    it "emailに＠があれば登録できること" do
+      @user.email = "aaa@aaa"
+      expect(@user).to be_valid
+    end
+
+    it "emailに＠がなければ登録できないこと" do
+      @user.email = "aaaaaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid")
+    end
+
     it "passwordが6文字以上であれば登録できること" do
       @user.password = "123abc"
       @user.password_confirmation = "123abc"
