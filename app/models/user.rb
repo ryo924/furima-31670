@@ -9,7 +9,6 @@ class User < ApplicationRecord
   SEI_MEI_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
 
   validates :nickname, presence: true
-  validates :email, uniqueness: true
   validates :password, length: {minimum: 6 }
   validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
   validates :sei, presence: true
