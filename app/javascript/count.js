@@ -1,6 +1,6 @@
 function count (){
   const itemPrice = document.getElementById("item-price")
-  itemPrice.addEventListener("keyup", () => {
+  itemPrice.addEventListener("input", () => {
     const countPrice = itemPrice.value;
     const addTaxPrice = document.getElementById("add-tax-price");
     addTaxPrice.innerHTML = `${countPrice/10}`;
