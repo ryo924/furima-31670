@@ -24,4 +24,6 @@ class User < ApplicationRecord
   validates_format_of :sei_kana, with: SEI_MEI_KANA_REGEX, message: 'Full-width katakana characters'
   validates_format_of :mei_kana, with: SEI_MEI_KANA_REGEX, message: 'Full-width katakana characters'
   
+  has_many :items
+
 end
