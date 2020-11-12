@@ -5,12 +5,10 @@ class OrdersController < ApplicationController
 
   def index
     @order_address = OrderAddress.new
-    item_find
   end
 
   def create
     @order_address = OrderAddress.new(order_address_params)
-    item_find
     if @order_address.valid?
       pay_item
       @order_address.save
